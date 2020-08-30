@@ -1,0 +1,32 @@
+<form class="text-center mt-4" action="/restaurants/{{restaurant._id}}/edit" method="POST">
+  <label for="">Restaurant Name:</label>
+  <input type="text" placeholder="name" name="name" value="{{#if restaurant.name}}{{restaurant.name}}{{/if}}"><br>
+
+  <label for="">Restaurant category:</label>
+  <input type="text" placeholder="category" name="category"
+    value="{{#if restaurant.category}}{{restaurant.category}}{{/if}}"><br>
+
+  <label for="">Restaurant image:</label>
+  <input type="text" placeholder="image" name="image" value="{{#if restaurant.image}}{{restaurant.image}}{{/if}}"><br>
+
+  <label for="">Restaurant location:</label>
+  <input type="text" placeholder="location" name="location"
+    value="{{#if restaurant.location}}{{restaurant.location}}{{/if}}"><br>
+
+  <label for="">Restaurant phone:</label>
+  <input type="text" placeholder="phone" name="phone" value="{{#if restaurant.phone}}{{restaurant.phone}}{{/if}}"><br>
+
+  <label for="">Restaurant rating:</label>
+  <input type="text" placeholder="rating" name="rating"
+    value="{{#if restaurant.rating}}{{restaurant.rating}}{{/if}}"><br>
+
+  <div>
+    <label for="">Restaurant description:</label>
+    <textarea placeholder="description" name="description" rows="5" cols="33" style="resize: none;">
+    {{#if restaurant.description}}{{restaurant.description}}{{/if}}
+    </textarea>
+  </div>
+
+  <button class="btn btn-primary btn-sm" type="submit">Save</button>
+  <a href="/" class="btn btn-secondary btn-sm">back</a>
+</form>

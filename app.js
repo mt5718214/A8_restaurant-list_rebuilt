@@ -9,6 +9,7 @@ const Restaurant = require('./models/restaurant')
 const bodyParser = require('body-parser')
 
 const exphbs = require('express-handlebars')
+const changeData = require('./changeData')
 const restaurant = require('./models/restaurant')
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
@@ -38,7 +39,7 @@ app.get('/restaurants/new', (req, res) => {
   return res.render('new')
 })
 
-app.get('/restaurants/:id/detail', (req, res) => {
+app.get('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .lean()
@@ -46,10 +47,30 @@ app.get('/restaurants/:id/detail', (req, res) => {
     .catch(error => console.log(error))
 })
 
+app.get('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then(restaurant => res.render('edit', { restaurant }))
+    .catch(error => console.log(error))
+})
+
 app.post('/restaurants/new', (req, res) => {
   const name = req.body.name
   return Restaurant.create({ name })
     .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
+app.post('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  const requestBody = req.body
+  return Restaurant.findById(id)
+    .then(restaurant => {
+      changeData(restaurant, requestBody)
+      return restaurant.save()
+    })
+    .then(() => res.redirect(`/restaurants/${id}`))
     .catch(error => console.log(error))
 })
 
