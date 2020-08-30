@@ -9,6 +9,7 @@ const Restaurant = require('./models/restaurant')
 const bodyParser = require('body-parser')
 
 const exphbs = require('express-handlebars')
+const restaurant = require('./models/restaurant')
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
@@ -35,6 +36,14 @@ app.get('/', (req, res) => {
 
 app.get('/restaurants/new', (req, res) => {
   return res.render('new')
+})
+
+app.get('/restaurants/:id/detail', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then(restaurant => res.render('show', { restaurant }))
+    .catch(error => console.log(error))
 })
 
 app.post('/restaurants/new', (req, res) => {
