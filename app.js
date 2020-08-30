@@ -4,6 +4,8 @@ const app = express()
 const mongoose = require('mongoose')
 const db = mongoose.connection
 
+const Restaurant = require('./models/restaurant')
+
 const exphbs = require('express-handlebars')
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
@@ -22,7 +24,10 @@ db.once('open', () => {
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-  res.render('index')
+  return Restaurant.find()
+    .lean()
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.log(error))
 })
 
 
