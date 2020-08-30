@@ -6,6 +6,8 @@ const db = mongoose.connection
 
 const Restaurant = require('./models/restaurant')
 
+const bodyParser = require('body-parser')
+
 const exphbs = require('express-handlebars')
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
@@ -22,6 +24,7 @@ db.once('open', () => {
 })
 
 app.use(express.static('public'))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 app.get('/', (req, res) => {
   return Restaurant.find()
@@ -30,6 +33,16 @@ app.get('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
+app.get('/restaurants/new', (req, res) => {
+  return res.render('new')
+})
+
+app.post('/restaurants/new', (req, res) => {
+  const name = req.body.name
+  return Restaurant.create({ name })
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
 
 app.listen(3000, () => {
   console.log('Express is running on http://localhost:3000')
