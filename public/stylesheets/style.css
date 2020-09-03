@@ -10,6 +10,19 @@ header {
   color: #226089;
 }
 
+.navbar > div {
+  width: 100%;
+}
+
+.navbar .create-btn h5{
+  display: inline-block;
+  margin: 0 0 0 3px;
+}
+
+.navbar .create-btn i {
+  line-height: 30px;
+}
+
 .banner {
   position: relative;
   z-index: -1;

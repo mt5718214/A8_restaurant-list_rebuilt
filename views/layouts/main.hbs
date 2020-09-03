@@ -25,11 +25,21 @@
   <header>
     <!-- navigation -->
     <nav class="navbar navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand" href="/">
-          <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
-            width="30" height="30" class="d-inline-block align-top" alt="我的餐廳清單">
-          My RestaurantList
+      <div class="d-flex justify-content-around">
+        <div class="container">
+          <a class="navbar-brand" href="/">
+            <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
+              width="30" height="30" class="d-inline-block align-top" alt="我的餐廳清單">
+            My RestaurantList
+          </a>
+        </div>
+
+        {{!-- Create Button --}}
+        <a href="/restaurants/new" class="create-btn btn btn-outline-success btn-sm" style="text-decoration:none;">
+          <div class="d-flex align-items-center">
+            <i class="fas fa-plus"></i>
+            <h5>Create</h5>
+          </div>
         </a>
       </div>
     </nav>
