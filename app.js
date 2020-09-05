@@ -9,7 +9,6 @@ const Restaurant = require('./models/restaurant')
 const bodyParser = require('body-parser')
 
 const exphbs = require('express-handlebars')
-const changeData = require('./changeData')
 const restaurant = require('./models/restaurant')
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
@@ -56,8 +55,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
 })
 
 app.post('/restaurants/new', (req, res) => {
-  const name = req.body.name
-  return Restaurant.create({ name })
+  return Restaurant.create(req.body)
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
@@ -67,7 +65,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
   const requestBody = req.body
   return Restaurant.findById(id)
     .then(restaurant => {
-      changeData(restaurant, requestBody)
+      restaurant = Object.assign(restaurant, requestBody)
       return restaurant.save()
     })
     .then(() => res.redirect(`/restaurants/${id}`))
