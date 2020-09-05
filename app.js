@@ -54,6 +54,17 @@ app.get('/restaurants/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword
+  Restaurant.find()
+    .lean()
+    .then(restaurants => {
+      return restaurants.filter(restaurant => restaurant.name.includes(keyword) || restaurant.name_en.toLowerCase().includes(keyword.toLowerCase()) || restaurant.category.includes(keyword))
+    })
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.log(error))
+})
+
 app.post('/restaurants/new', (req, res) => {
   if (req.body.name === '') {
     req.body.name = '未命名'
