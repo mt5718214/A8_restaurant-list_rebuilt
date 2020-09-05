@@ -43,9 +43,31 @@
               <a href="./restaurants/{{this._id}}/edit" class="btn btn-primary btn-sm active mb-1"
                 role="button">Edit</a>
               <a href="./restaurants/{{this._id}}" class="btn btn-info btn-sm active mb-1" role="button">Detail</a>
-              <form action="./restaurants/{{this._id}}/delete" method="POST" style="display: inline;">
-                <button class="btn btn-danger btn-sm mb-1" type="submit">Delete</button>
-              </form>
+              <button class="btn btn-danger btn-sm mb-1" type="button" data-toggle="modal"
+                data-target="#delete{{this._id}}">Delete</button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="delete{{this._id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body text-center">
+                      You sure you want to delete {{this.name}}?
+                    </div>
+                    <div class="modal-footer">
+                      <form action="/restaurants/{{this._id}}/delete" method="POST" style="display: inline;">
+                        <button type="submit" class="btn btn-secondary">Yes</button>
+                      </form>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Back</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>
