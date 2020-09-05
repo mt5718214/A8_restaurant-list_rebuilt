@@ -55,9 +55,16 @@ app.get('/restaurants/:id/edit', (req, res) => {
 })
 
 app.post('/restaurants/new', (req, res) => {
-  return Restaurant.create(req.body)
-    .then(() => res.redirect('/'))
-    .catch(error => console.log(error))
+  if (req.body.name === '') {
+    req.body.name = '未命名'
+    return Restaurant.create(req.body)
+      .then(() => res.redirect('/'))
+      .catch(error => console.log(error))
+  } else {
+    return Restaurant.create(req.body)
+      .then(() => res.redirect('/'))
+      .catch(error => console.log(error))
+  }
 })
 
 app.post('/restaurants/:id/edit', (req, res) => {
