@@ -1,5 +1,27 @@
 <form class="text-center mt-4" action="/restaurants/new" method="POST">
-  <input type="text" placeholder="restaurant name" name="name" style="">
+  <label for="">Restaurant Name:</label>
+  <input type="text" placeholder="name" name="name"><br>
+
+  <label for="">Restaurant Category:</label>
+  <input type="text" placeholder="category" name="category"><br>
+
+  <label for="">Restaurant Image:</label>
+  <input type="url" placeholder="image" name="image"><br>
+
+  <label for="">Restaurant Location:</label>
+  <input type="text" placeholder="location" name="location"><br>
+
+  <label for="">Restaurant Phone:</label>
+  <input type="text" placeholder="phone" name="phone"><br>
+
+  <label for="">Restaurant Rating:</label>
+  <input type="text" placeholder="rating" name="rating"><br>
+
+  <div>
+    <label for="">Restaurant Description:</label>
+    <textarea placeholder="description" name="description" rows="5" cols="33" style="resize: none;"></textarea>
+  </div>
+
   <button class="btn btn-primary btn-sm" type="submit">Create!</button>
   <a href="/" class="btn btn-secondary btn-sm">back</a>
 </form>
