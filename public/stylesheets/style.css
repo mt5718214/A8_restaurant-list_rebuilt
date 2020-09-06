@@ -91,6 +91,46 @@ header {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+/* new page */
+.restaurant-createArea {
+  background-color: blanchedalmond;
+}
+
+.restaurant-createArea > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.restaurant-createArea label {
+    background-color: chocolate;
+    margin: 0 5px 0 0;
+    padding: 6px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+/* edit page */
+.restaurant-editArea {
+  background-color: blanchedalmond;
+}
+
+.restaurant-editArea > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.restaurant-editArea label {
+  background-color: chocolate;
+  margin: 0 5px 0 0;
+  padding: 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
 @media screen and (max-width: 992px) {
   .card img{
     height: 115px;

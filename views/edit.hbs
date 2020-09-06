@@ -1,21 +1,33 @@
-<form class="text-center mt-4" action="/restaurants/{{restaurant._id}}/edit" method="POST">
-  <label for="">Restaurant Name:</label>
-  <input type="text" placeholder="name" name="name" value="{{restaurant.name}}"><br>
+<form class="text-center pt-4 restaurant-editArea" action="/restaurants/{{restaurant._id}}/edit" method="POST">
+  <div>
+    <label for="">Restaurant Name:</label>
+    <input type="text" placeholder="name" name="name" value="{{restaurant.name}}">
+  </div>
 
-  <label for="">Restaurant category:</label>
-  <input type="text" placeholder="category" name="category" value="{{restaurant.category}}"><br>
+  <div>
+    <label for="">Restaurant category:</label>
+    <input type="text" placeholder="category" name="category" value="{{restaurant.category}}">
+  </div>
 
-  <label for="">Restaurant image:</label>
-  <input type="text" placeholder="image" name="image" value="{{restaurant.image}}"><br>
+  <div>
+    <label for="">Restaurant image:</label>
+    <input type="text" placeholder="image" name="image" value="{{restaurant.image}}">
+  </div>
 
-  <label for="">Restaurant location:</label>
-  <input type="text" placeholder="location" name="location" value="{{restaurant.location}}"><br>
+  <div>
+    <label for="">Restaurant location:</label>
+    <input type="text" placeholder="location" name="location" value="{{restaurant.location}}">
+  </div>
 
-  <label for="">Restaurant phone:</label>
-  <input type="text" placeholder="phone" name="phone" value="{{restaurant.phone}}"><br>
+  <div>
+    <label for="">Restaurant phone:</label>
+    <input type="text" placeholder="phone" name="phone" value="{{restaurant.phone}}">
+  </div>
 
-  <label for="">Restaurant rating:</label>
-  <input type="text" placeholder="rating" name="rating" value="{{restaurant.rating}}"><br>
+  <div>
+    <label for="">Restaurant rating:</label>
+    <input type="text" placeholder="rating" name="rating" value="{{restaurant.rating}}">
+  </div>
 
   <div>
     <label for="">Restaurant description:</label>
