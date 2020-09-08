@@ -9,7 +9,8 @@ const Restaurant = require('./models/restaurant')
 const bodyParser = require('body-parser')
 
 const exphbs = require('express-handlebars')
-const restaurant = require('./models/restaurant')
+
+const methodOverride = require('method-override')
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
@@ -26,6 +27,7 @@ db.once('open', () => {
 
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 
 app.get('/', (req, res) => {
   return Restaurant.find()
@@ -78,7 +80,7 @@ app.post('/restaurants/new', (req, res) => {
   }
 })
 
-app.post('/restaurants/:id/edit', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
   const id = req.params.id
   const requestBody = req.body
   return Restaurant.findById(id)
@@ -90,7 +92,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.post('/restaurants/:id/delete', (req, res) => {
+app.delete('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .then(restaurant => restaurant.remove())
