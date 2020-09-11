@@ -1,3 +1,7 @@
+body {
+  background-color: blanchedalmond;
+}
+
 header {
   overflow: hidden;
 }
@@ -101,10 +105,6 @@ header {
 }
 
 /* new page */
-.restaurant-createArea {
-  background-color: blanchedalmond;
-}
-
 .restaurant-createArea > div {
     display: flex;
     justify-content: center;
@@ -121,19 +121,7 @@ header {
 }
 
 /* edit page */
-.restaurant-editArea {
-  background-color: blanchedalmond;
-}
-
-.restaurant-editArea > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 8px;
-}
-
 .restaurant-editArea label {
-  background-color: chocolate;
   margin: 0 5px 0 0;
   padding: 6px;
   border-radius: 4px;
