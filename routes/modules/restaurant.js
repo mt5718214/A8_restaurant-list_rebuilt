@@ -41,6 +41,9 @@ route.put('/:id', (req, res) => {
   const requestBody = req.body
   return Restaurant.findById(id)
     .then(restaurant => {
+      if (requestBody.name === '') {
+        requestBody.name = '未命名'
+      }
       restaurant = Object.assign(restaurant, requestBody)
       return restaurant.save()
     })
