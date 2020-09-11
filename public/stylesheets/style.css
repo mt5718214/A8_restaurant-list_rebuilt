@@ -105,15 +105,14 @@ header {
 }
 
 /* new page */
-.restaurant-createArea > div {
+/* .restaurant-createArea > div {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 8px;
-}
+} */
 
 .restaurant-createArea label {
-    background-color: chocolate;
     margin: 0 5px 0 0;
     padding: 6px;
     border-radius: 4px;
