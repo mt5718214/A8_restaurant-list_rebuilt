@@ -48,6 +48,15 @@ header {
   color: #9b4b4b;
 }
 
+.sort-form h4 {
+  display: inline;
+  margin: 0;
+}
+
+.sort-form form {
+  display: inline;
+}
+
 .form-control::placeholder {
   color: #aaaaaa;
   font-size: 0.8rem;

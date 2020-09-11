@@ -12,6 +12,23 @@
           </div>
         </div>
       </form>
+      {{!-- Sort form --}}
+      <div class="sort-form">
+        <div class="mt-2">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              排序方式
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="/sort/asc">A->Z</a>
+              <a class="dropdown-item" href="/sort/desc">Z->A</a>
+              <a class="dropdown-item" href="/sort/category">類別</a>
+              <a class="dropdown-item" href="/sort/rating">評分</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
