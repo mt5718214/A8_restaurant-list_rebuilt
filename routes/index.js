@@ -7,10 +7,12 @@ const search = require('./modules/search')
 const sort = require('./modules/sort')
 const users = require('./modules/users')
 
+const { authenticator } = require('../middleware/auth')
+
 route.use('/users', users)
-route.use('/restaurants', restaurant)
-route.use('/search', search)
-route.use('/sort', sort)
-route.use('/', home)
+route.use('/restaurants', authenticator, restaurant)
+route.use('/search', authenticator, search)
+route.use('/sort', authenticator, sort)
+route.use('/', authenticator, home)
 
 module.exports = route
