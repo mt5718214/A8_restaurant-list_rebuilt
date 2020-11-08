@@ -34,13 +34,20 @@
           </a>
         </div>
 
+        {{#if isAuthenticated}}
         {{!-- Create Button --}}
-        <a href="/restaurants/new" class="create-btn btn btn-outline-success btn-sm" style="text-decoration:none;">
+        <a href="/restaurants/new" class="mx-3 btn btn-outline-light" style="text-decoration:none;">
           <div class="d-flex align-items-center">
-            <i class="fas fa-plus"></i>
             <h5>Create</h5>
           </div>
         </a>
+        {{/if}}
+
+        {{#if isAuthenticated}}
+        <a href="/users/logout" class="btn btn-outline-light">Logout</a>
+        {{else}}
+        <a href="/users/login" class="btn btn-outline-light">Login</a>
+        {{/if}}
       </div>
     </nav>
 
