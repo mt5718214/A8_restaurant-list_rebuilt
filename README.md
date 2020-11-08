@@ -1,6 +1,7 @@
 # MyRestaurantList
 
 ## Features
+* You can create account by email or facebook
 * You can add, edit, delete a restaurant
 * You can view details of the restaurant
 * You can search restaurant by name or category
@@ -16,7 +17,7 @@
 git clone https://github.com/mt5718214/A8_restaurant-list_rebuilt.git
 
 2. Get into the directory
-cd A6_MyRestaurantList
+cd A8_restaurant-list_rebuilt
 
 3. Install packages
 npm Install
