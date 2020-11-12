@@ -1,7 +1,7 @@
 const express = require('express')
 const route = express.Router()
 
-const Restaurant = require('../../models//restaurant')
+const Restaurant = require('../../models/restaurant')
 
 route.get('/new', (req, res) => {
   return res.render('new')
